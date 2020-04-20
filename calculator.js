@@ -112,6 +112,10 @@ function cPushed(e) {
 }
 
 function opPushed(e) {
+    if (isPreviousResult) {
+        isPreviousResult = false;
+    }
+    
     if (lastOp === e.target.value) {return;} // if you click same op twice in a row do nothing
     else if (lastOp === '') {
         inputStream += ' ' + e.target.value + ' '; //if the last entry wasn't an operator, add it
