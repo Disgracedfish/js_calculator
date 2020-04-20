@@ -14,8 +14,8 @@
         <h1 id='heading'>Javascript Calculator</h1>
         <div id = 'calculator-body'>
             <div id = 'display'>
-                <div id = 'display-output'>40 + 2 = </div>
-                <div id = 'display-input'>42</div>
+                <div id = 'display-history'></div>
+                <div id = 'display-input'> </div>
 
             </div>
             
@@ -23,34 +23,34 @@
                 <table id='buttons-table'>
                     
                     <tr>
-                        <td colspan="3" style="text-align:right"><input type='button' class = 'button operator' value = 'Del'></td>
-                        <td><input type='button' class = 'button operator' value = 'C'></td>
+                        <td colspan="3" style="text-align:right"><input type='button' id='delete' class = 'button special-operator' value = 'Del'></td>
+                        <td><input type='button' id = 'clear-button' class = 'button special-operator' value = 'C'></td>
                         
                     </tr>
                     <tr>
-                        <td><input type='button' class = 'button' value = '7'></td>
-                        <td><input type='button' class = 'button' value = '8'></td>
-                        <td><input type='button' class = 'button' value = 9></td>
+                        <td><input type='button' class = 'button number-input' value = '7'></td>
+                        <td><input type='button' class = 'button number-input' value = '8'></td>
+                        <td><input type='button' class = 'button number-input' value = 9></td>
                         <td><input type='button' class = 'button operator' value = '÷'></td>
                     </tr>
                     <tr>
-                        <td><input type='button' class = 'button' value = '4'></td>
-                        <td><input type='button' class = 'button' value = '5'></td>
-                        <td><input type='button' class = 'button' value = '6'></td>
+                        <td><input type='button' class = 'button number-input' value = '4'></td>
+                        <td><input type='button' class = 'button number-input' value = '5'></td>
+                        <td><input type='button' class = 'button number-input' value = '6'></td>
                         <td><input type='button' class = 'button operator' value = '×'></td>
 
                     </tr>
                     <tr>
-                        <td><input type='button' class = 'button' value = '1'></td>
-                        <td><input type='button' class = 'button' value = '2'></td>
-                        <td><input type='button' class = 'button' value = '3'></td>
+                        <td><input type='button' class = 'button number-input' value = '1'></td>
+                        <td><input type='button' class = 'button number-input' value = '2'></td>
+                        <td><input type='button' class = 'button number-input' value = '3'></td>
                         <td><input type='button' class = 'button operator' value = '-'></td>
 
                     </tr>
                     <tr>
-                        <td><input type='button' class = 'button' value = '0'></td>
-                        <td><input type='button' class = 'button' value = '.'></td>
-                        <td><input type='button' class = 'button equals' value = '='></td>
+                        <td><input type='button' class = 'button number-input' value = '0'></td>
+                        <td><input type='button' class = 'button number-input' value = '.'></td>
+                        <td><input type='button' id = 'equals' class = 'button special-operator' value = '='></td>
                         <td><input type='button' class = 'button operator' value = '+'></td>
 
                     </tr>

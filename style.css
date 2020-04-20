@@ -41,15 +41,18 @@ main {
     margin: 5px 0 20px 0;
     height: 90px;
     border-radius: 0.5em;
+    overflow: hidden;
     
 }
 
-#display-output {
+#display-history {
     height: 26px;
     font-size:16pt;
     margin: 8px;
     color: #bbb;
     text-align: right;
+    
+    
 }
 
 #display-input {
@@ -78,6 +81,7 @@ table {
     text-align: center;
     line-height: 40px;
     text-decoration: none;
+    transition: all 0.07s;
     
 }
 
@@ -88,15 +92,18 @@ table {
 
 .button:focus {
     outline: none !important;
+}
+
+.clicked {
     border: solid 1px darkgray;
     padding:0;
     transform: translateY(1px);
 }
 
-.operator {
+.operator, .special-operator {
     background-color: #b5b5b5;
 }
-.equals {
+#equals {
     background-color: darkslateblue;
     color: white;
 }
