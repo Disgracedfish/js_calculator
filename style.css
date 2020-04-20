@@ -1,6 +1,8 @@
 
 * {
     font-family: Arial, sans-serif;
+    margin:0;
+    padding:0;
 }
 main {
     width: 960px;
@@ -9,7 +11,6 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
     text-align: center;
 }
 
@@ -20,8 +21,9 @@ main {
 
 #calculator-body {
     border-radius: 5%;
-    margin: auto;
     border: solid 0.5px #cccccc;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    margin: auto;
     width: 300px;
     height: 400px;
     padding: 10px;
@@ -29,8 +31,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-
+    
 
 }
 
@@ -38,15 +39,30 @@ main {
     border: solid 1px #bbbbbb;
     width: 290px;
     margin: 5px 0 20px 0;
-    height: 5em;
+    height: 90px;
     border-radius: 0.5em;
     
 }
 
+#display-output {
+    height: 26px;
+    font-size:16pt;
+    margin: 8px;
+    color: #bbb;
+    text-align: right;
+}
+
+#display-input {
+    height: 32;
+    font-size: 30pt;
+    margin: 8px;
+    text-align: right;
+}
+
 table {
-    padding: 5px;
+    
     border-collapse: separate;
-    border-spacing: 10px;
+    border-spacing: 14px;
 }
 
 
