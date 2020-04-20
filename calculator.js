@@ -9,6 +9,7 @@ const delButton = document.getElementById('delete');
 
 var inputStream = '';
 var lastOp = '';
+var isPreviousResult = false;
 
 function add(a, b) {
     return a+b;
@@ -38,6 +39,12 @@ return operators[opp];
 }
 
 function numPushed(e) {
+    if (isPreviousResult) {
+        historyDisplay.textContent = 'Ans = ' + inputStream;
+        inputStream ='';
+        isPreviousResult = false;
+    }
+    
     inputStream+=e.target.value;
     lastOp = '';
     updateDisplay();
@@ -75,8 +82,10 @@ function equalsPushed(e) {
         expression.splice(index-1,3,term);
     }
 
+ expression[0] = Math.round(10000*expression[0])/10000
  inputStream = expression.join();
  updateDisplay();
+ isPreviousResult = true;
 
 
 
@@ -98,6 +107,7 @@ function cPushed(e) {
     historyDisplay.textContent = '';
     inputStream = '';
     lastOp = '';
+    isPreviousResult = false;
     updateDisplay();
 }
 
