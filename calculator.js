@@ -119,8 +119,12 @@ function opPushed(e) {
     if (lastOp === e.target.value) {return;} // if you click same op twice in a row do nothing
     
     else if (lastOp === '') {
-        if (inputStream ==='' && e.target.value ==='-') {
-            inputStream += '-'
+        if (inputStream ==='') {
+            if (e.target.value ==='-') {
+                inputStream += '-'
+            } else {
+                return;
+            }
         } else {
             inputStream += ' ' + e.target.value + ' '; //if the last entry wasn't an operator, add it
             lastOp = e.target.value;
