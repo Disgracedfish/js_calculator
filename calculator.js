@@ -144,7 +144,48 @@ function removeTransition (e) {
 }
 
 
+function keyPressed(e) {
+    console.log(e);
+    if ('1234567890'.includes(e.key)) {
+        let key = {target: {value:e.key }}
+        numPushed(key);
+    }
 
+    if (e.key==='x' || e.key === '*') {
+        let key = {target: {value: '×'}}
+        opPushed(key)
+    }
+
+    if (e.key === '/') {
+        let key = {target: {value: '÷'}}
+        opPushed(key)
+    }
+
+    if (e.key === '-') {
+        let key = {target: {value: '-'}}
+        opPushed(key)
+    }
+
+    if (e.key === '+') {
+        let key = {target: {value: '+'}}
+        opPushed(key)
+    }
+
+    if (e.key === 'Enter') {
+        equalsPushed();
+    }
+
+    if (e.key ==='c' || e.key === 'C') {
+        cPushed();
+    }
+
+    if (e.keyCode === 8) {
+        delPushed();
+    }
+}
+
+
+document.addEventListener('keydown', keyPressed)
 equalsButton.addEventListener('click', equalsPushed);
 clearButton.addEventListener('click', cPushed);
 delButton.addEventListener('click', delPushed);
