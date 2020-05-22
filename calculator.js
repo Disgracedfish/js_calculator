@@ -7,6 +7,7 @@ const equalsButton = document.getElementById('equals');
 const clearButton = document.getElementById('clear-button');
 const delButton = document.getElementById('delete');
 
+
 var inputStream = '';
 var lastOp = '';
 var isPreviousResult = false;
@@ -34,7 +35,7 @@ function operate(opp, a, b) {
         '/': divide(a.b)
         
     }
-    console.log(operators[opp]);
+    
 return operators[opp];
 }
 
@@ -51,6 +52,7 @@ function numPushed(e) {
 }
 
 function equalsPushed(e) {
+    if (inputStream ==='') {return;}
     historyDisplay.textContent = inputStream + ' =';
     let expression = parseInputStream();
     
@@ -122,6 +124,7 @@ function opPushed(e) {
         if (inputStream ==='') {
             if (e.target.value ==='-') {
                 inputStream += '-'
+                lastOp = '-';
             } else {
                 return;
             }
@@ -151,7 +154,6 @@ function transition(e) {
 function removeTransition (e) {
     e.target.classList.remove('clicked');
 }
-
 
 function keyPressed(e) {
     if ('1234567890'.includes(e.key)) {
@@ -216,6 +218,8 @@ for (let i = 0; i<numberButtons.length; i++) {
 for (let i = 0; i<operatorButtons.length; i++) {
     operatorButtons[i].addEventListener('click', opPushed)
 }
+
+
 
 
 
