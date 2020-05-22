@@ -117,9 +117,15 @@ function opPushed(e) {
     }
     
     if (lastOp === e.target.value) {return;} // if you click same op twice in a row do nothing
-    else if (lastOp === '') {
-        inputStream += ' ' + e.target.value + ' '; //if the last entry wasn't an operator, add it
-        lastOp = e.target.value;
+    
+    else if (lastOp === '') { 
+
+        if (e.target.value === '-' && inputStream ==='') {
+            inputStream += e.target.value;
+        } else {
+            inputStream += ' ' + e.target.value + ' '; //if the last entry wasn't an operator, add it
+            lastOp = e.target.value;
+        }
     } else {
         inputStream = inputStream.slice(0,inputStream.length-3)+ ' ' + e.target.value + ' ';
     }
