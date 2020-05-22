@@ -172,6 +172,8 @@ function keyPressed(e) {
 
     if (e.key === 'Enter') {
         equalsPushed();
+        let button = {target: equalsButton};
+        transition(button);
     }
 
     if (e.key ==='c' || e.key === 'C') {
@@ -180,6 +182,13 @@ function keyPressed(e) {
 
     if (e.keyCode === 8) {
         delPushed();
+    }
+    
+    for (let i = 0; i<buttons.length; i++) {
+        if (e.key === buttons[i].value) {
+            let button = {target:buttons[i]};
+            transition(button);
+        }
     }
 }
 
