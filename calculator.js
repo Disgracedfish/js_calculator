@@ -145,7 +145,6 @@ function removeTransition (e) {
 
 
 function keyPressed(e) {
-    console.log(e);
     if ('1234567890'.includes(e.key)) {
         let key = {target: {value:e.key }}
         numPushed(key);
