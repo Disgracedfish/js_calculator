@@ -5,7 +5,9 @@
     padding:0;
 }
 main {
-    width: 960px;
+    width: 100%
+    max-width: 960px;
+    min-width: 310px;
     height: 100%;
     margin: auto;
     display: flex;
