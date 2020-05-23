@@ -86,6 +86,9 @@ function equalsPushed(e) {
 
  expression[0] = Math.round(10000*expression[0])/10000
  inputStream = expression.join();
+ if (parseFloat(inputStream) > 1e11) {
+     inputStream = parseFloat(inputStream).toExponential(5);
+ }
  updateDisplay();
  isPreviousResult = true;
 
@@ -139,7 +142,27 @@ function opPushed(e) {
 }
 
 function updateDisplay() {
+    var fontSize = 30;
+    inputDisplay.style.fontSize = `${fontSize}pt`;
+    while (checkDisplayWidth(inputStream) >= 280 ) {
+        fontSize-=1;
+        inputDisplay.style.fontSize = `${fontSize}pt`;
+    }
     inputDisplay.textContent = inputStream;
+    
+}
+
+function checkDisplayWidth(text) {
+    var tag = document.createElement('div');
+    tag.style.position = 'absolute';
+    tag.style.left = '-99in';
+    tag.style.whiteSpace = 'nowrap';
+    tag.innerHTML = text;
+
+    inputDisplay.appendChild(tag);
+    var result = tag.clientWidth;
+    inputDisplay.removeChild(tag);
+    return result;
 }
 
 function parseInputStream() {
@@ -194,6 +217,13 @@ function keyPressed(e) {
     if (e.keyCode === 8) {
         delPushed();
     }
+
+    if (e.key === 'e') {
+        if ('1234567890'.includes(inputStream[inputStream.length-1]) ) {
+            inputStream += 'e';
+            updateDisplay();
+        }
+    }
     
     for (let i = 0; i<buttons.length; i++) {
         if (e.key === buttons[i].value) {
@@ -201,6 +231,7 @@ function keyPressed(e) {
             transition(button);
         }
     }
+
 }
 
 
@@ -218,8 +249,6 @@ for (let i = 0; i<numberButtons.length; i++) {
 for (let i = 0; i<operatorButtons.length; i++) {
     operatorButtons[i].addEventListener('click', opPushed)
 }
-
-
 
 
 
